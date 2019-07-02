@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>IIOT</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/materialdesignicons.css')}}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/vendor.css')}}">
+    <!-- endinject -->
+    <!-- vendor css for this page -->
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/flag-icon.css')}}">
+    <!-- End vendor css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/style_002.css')}}">
+    <!-- endinject -->
+    <!-- Layout style -->
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/style.css')}}">
+
+    <!-- Layout style -->
+    <style type="text/css">
+        /* Chart.js */
+        
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+        
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+        
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+    <style type="text/css">
+        .jqstooltip {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            visibility: hidden;
+            background: rgb(0, 0, 0) transparent;
+            background-color: rgba(0, 0, 0, 0.6);
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+            white-space: nowrap;
+            padding: 5px;
+            border: 1px solid white;
+            box-sizing: content-box;
+            z-index: 10000;
+        }
+        
+        .jqsfield {
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+        }
+    </style>
+<style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style><style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;box-sizing: content-box;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+
+<body class="header-fixed">
+    <!-- partial:partials/_header.html -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <nav class="t-header">
+        <div class="t-header-brand-wrapper">
+            <a href="/"><img class="logo" src="{{ url_for('.static', filename='images/logo.png')}}" alt=""> <img class="logo-mini" src="images/logo.png" alt=""> </a>
+            <button class="t-header-toggler t-header-desk-toggler d-none d-lg-block">
+                <svg class="logo" viewBox="0 0 200 200">
+                    <path class="top" d="
+                M 40, 80
+                C 40, 80 120, 80 140, 80
+                C180, 80 180, 20  90, 80
+                C 60,100  30,120  30,120
+              "></path>
+                    <path class="middle" d="
+                M 40,100
+                L140,100
+              "></path>
+                    <path class="bottom" d="
+                M 40,120
+                C 40,120 120,120 140,120
+                C180,120 180,180  90,120
+                C 60,100  30, 80  30, 80
+              "></path>
+                </svg>
+            </button>
+        </div>
+        <div class="t-header-content-wrapper">
+            <div class="t-header-content">
+                <button class="t-header-toggler t-header-mobile-toggler d-block d-lg-none"><i class="mdi mdi-menu"></i></button>
+                <form action="#" class="t-header-search-box">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="mdi mdi-magnify"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search" autocomplete="off">
+                    </div>
+                </form>
+                <ul class="nav ml-auto">
+                    <li class="nav-item dropdown"><a class="nav-link" href="#" id="notificationDropdown" data-toggle="dropdown" aria-expanded="false"><span class="notification-indicator notification-indicator-primary notification-indicator-ripple"></span><i class="mdi mdi-bell-outline mdi-1x"></i></a>
+                        <div class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="notificationDropdown">
+                            <div class="dropdown-header">
+                                <h6 class="dropdown-title">Notifications</h6>
+                                <p class="dropdown-title-text">You have 4 unread notification</p>
+                            </div>
+                            <div class="dropdown-body">
+                                <div class="dropdown-list">
+                                    <div class="icon-wrapper rounded-circle bg-inverse-primary text-primary"><i class="mdi mdi-alert"></i></div>
+                                    <div class="content-wrapper"><small class="name">Storage Full</small> <small class="content-text">Server storage almost full</small></div>
+                                </div>
+                                <div class="dropdown-list">
+                                    <div class="icon-wrapper rounded-circle bg-inverse-success text-success"><i class="mdi mdi-cloud-upload"></i></div>
+                                    <div class="content-wrapper"><small class="name">Upload Completed</small> <small class="content-text">3 Files uploded successfully</small></div>
+                                </div>
+                                <div class="dropdown-list">
+                                    <div class="icon-wrapper rounded-circle bg-inverse-warning text-warning"><i class="mdi mdi-security"></i></div>
+                                    <div class="content-wrapper"><small class="name">Authentication Required</small> <small class="content-text">Please verify your password to continue using cloud services</small></div>
+                                </div>
+                            </div>
+                            <div class="dropdown-footer"><a href="#">View All</a></div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link" href="#" id="appsDropdown" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-apps mdi-1x"></i></a>
+                        <div class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="appsDropdown" x-placement="bottom-end" style="position: absolute; transform: translate3d(-268px, 44px, 0px); top: 0px; left: 0px; will-change: transform;">
+                            <div class="dropdown-body border-top pt-0"><a href="/profile" class="dropdown-grid"><i class="grid-icon mdi mdi-clipboard-account mdi-2x"></i> <span class="grid-tittle">My Profile</span> </a><a href="/settings"   class="dropdown-grid"><i class="grid-icon mdi mdi-settings mdi-2x"></i> <span class="grid-tittle">Settings</span> </a><a href="/login"  class="dropdown-grid"><i class="grid-icon mdi mdi-logout mdi-2x"></i> <span class="grid-tittle">Logout</span> </a></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- partial -->
+    <div class="page-body">
+        <!-- partial:partials/_sidebar.html -->
+        <div class="sidebar">
+            <ul class="navigation-menu">
+                <li class="nav-category-divider">&nbsp;</li>
+                <li><a href="/" aria-expanded="true"><span class="link-title">Dashboard</span> <i class="mdi mdi-gauge link-icon"></i></a></li>
+                <li><a href="#management-pages" data-toggle="collapse" aria-expanded="false"><span class="link-title">Management</span> <i class="mdi mdi-laptop link-icon"></i></a>
+                        <ul class="collapse navigation-submenu" id="management-pages">
+                            <li><a href="/user-management">User Management</a></li>
+                            <li><a href="/role-management">Role Management</a></li>
+                        </ul>
+                </li>
+                <li class="active"><a href="#by-pass-pages" data-toggle="collapse" aria-expanded="false"><span class="link-title">By-Pass Line</span> <i class="mdi mdi-bullseye link-icon"></i></a>
+                    <ul class="collapse navigation-submenu" id="by-pass-pages">
+                        <li><a href="/by-pass-line">Choose By-Pass Line</a></li>
+                    </ul>
+                </li>
+                <li><a href="#motors" data-toggle="collapse" aria-expanded="false"><span class="link-title">Motors</span> <i class="mdi mdi-gauge link-icon"></i></a>
+                    <ul class="collapse navigation-submenu" id="motors">
+                        <li><a href="/choose-motors">Choose Motors</a></li>
+                    </ul>
+                </li>
+                <li><a href="#parameters" data-toggle="collapse" aria-expanded="false"><span class="link-title">Parameters</span> <i class="mdi mdi-chart-bar link-icon"></i></a>
+                    <ul class="collapse navigation-submenu" id="parameters">
+                        <li><a href="/temperature">Temperature</a></li>
+                        <li><a href="/rpm">RPM</a></li>
+                        <li><a href="/current">Current</a></li>
+                        <li><a href="/voltage">Voltage</a></li>
+                    </ul>
+                </li>
+                <li><a href="#manage" data-toggle="collapse" aria-expanded="false"><span class="link-title">Manage</span> <i class="mdi mdi-chart-donut link-icon"></i></a>
+                    <ul class="collapse navigation-submenu" id="manage">
+                        <li><a href="/manage-plants">Manage Plant</a></li>
+                        <li><a href="/manage-motors">Manage Motors</a></li>
+                        <li><a href="manage-by-pass-lines.html">Manage By-Pass Lines</a></li>
+                        <li><a href="/notifications">Manage Notifications</a></li>
+                    </ul>
+                </li>
+                <li><a href="/tickets"><span class="link-title">Tickets</span> <i class="mdi mdi-ticket link-icon"></i></a></li>
+                <li><a href="/reports"><span class="link-title">Reports</span> <i class="mdi mdi-calendar-text  link-icon"></i></a></li>
+            </ul>
+        </div>
+        <!-- partial -->
+        <div class="page-content-wrapper">
+            <div class="page-content-wrapper-inner">
+                <div class="viewport-header">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb has-arrow">
+                            <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Choose By Pass LIne</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="content-viewport">
+                     <div class="col-lg-12">
+                            <div class="grid">
+                                <div class="item-wrapper">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th><b>Bypass Line Name</b></th>
+                                                    <th><b>Bypass Line Details</b></th>
+                                                    <th><b>Plant Name</b></th>
+                                                    <th><b>Line Pressure</b></th>
+                                                    <th><b>Choose Line</b></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Bypass Line 1</td>
+                                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</td>
+                                                    <td>Plant Name 1</td>
+                                                    <td>805</td>
+                                                    <td><a class="btn btn-success btn-rounded" href="bypass-line-status.html"><i class="mdi mdi-arrow-top-right"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bypass Line 2</td>
+                                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</td>
+                                                    <td>Plant Name 2</td>
+                                                    <td>1805</td>
+                                                    <td><a class="btn btn-success btn-rounded" href="bypass-line-status.html"><i class="mdi mdi-arrow-top-right"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bypass Line 3</td>
+                                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</td>
+                                                    <td>Plant Name 3</td>
+                                                    <td>605</td>
+                                                    <td><a class="btn btn-success btn-rounded" href="bypass-line-status.html"><i class="mdi mdi-arrow-top-right"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bypass Line 4</td>
+                                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</td>
+                                                    <td>Plant Name 4</td>
+                                                    <td>155</td>
+                                                    <td><a class="btn btn-success btn-rounded" href="/by-pass-line"><i class="mdi mdi-arrow-top-right"></i></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <!-- content viewport ends -->
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-sm-6 text-center text-sm-left mt-3 mt-sm-0"><small class="text-muted d-block">Copyright © 2019. All rights reserved</small></div>
+                </div>
+            </footer>
+            <!-- partial -->
+        </div>
+        <!-- page content ends -->
+    </div>
+    <!--page body ends -->
+    <!-- SCRIPT LOADING START FORM HERE /////////////-->
+    <!-- plugins:js -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('.static', filename='js/core.js')}}"></script>
+    <script src="{{ url_for('.static', filename='js/vendor.js')}}"></script>
+    <!-- endinject -->
+    <!-- Vendor Js For This Page Ends-->
+    <script src="{{ url_for('.static', filename='js/Chart.js')}}"></script>
+    <!-- Vendor Js For This Page Ends-->
+    <script src="{{ url_for('.static', filename='js/script.js')}}"></script>
+    <div id="chartjs-tooltip" class="bottom center top" style="opacity: 1; position: absolute; left: 799.75px; top: 521.4px; font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif; font-size: 12px; font-style: normal; padding: 6px; pointer-events: none;">
+    </div>
+
+
+</body>
+</html>

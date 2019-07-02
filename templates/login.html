@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+{% import "bootstrap/wtf.html" as wtf %}
+<html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>IIOT</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/materialdesignicons.css')}}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/vendor.css')}}">
+    <!-- endinject -->
+    <!-- vendor css for this page -->
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/flag-icon.css')}}">
+    <!-- End vendor css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/style_002.css')}}">
+    <!-- endinject -->
+    <!-- Layout style -->
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/style.css')}}">
+
+    <!-- Layout style -->
+    <style type="text/css">
+        /* Chart.js */
+        
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+        
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+        
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+    <style type="text/css">
+        .jqstooltip {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            visibility: hidden;
+            background: rgb(0, 0, 0) transparent;
+            background-color: rgba(0, 0, 0, 0.6);
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+            white-space: nowrap;
+            padding: 5px;
+            border: 1px solid white;
+            box-sizing: content-box;
+            z-index: 10000;
+        }
+        
+        .jqsfield {
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+        }
+    </style>
+
+<body class="header-fixed">
+    <div class="authentication-theme auth-style_2">
+        <div class="row inner-wrapper">
+            <div class="col-md-7 banner-section">
+            </div>
+            <div class="col-md-5 form-section">
+                <div class="logo-section">
+                    <a href="/" class="logo"><img src="{{ url_for('.static', filename='images/logo.png')}}" alt="logo"></a>
+                </div>
+                <form class="form-signin" method="POST" action="/login">
+                     <h2 class="form-signin-heading">Please sign in</h2>
+                     {{ form.hidden_tag() }}
+                     {{ wtf.form_field(form.username) }}
+                     {{ wtf.form_field(form.password) }}
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+                <div class="signup-link">
+                    <p>Don't have an account yet?</p><a href="#">Sign Up</a></div>
+                    <p><a href="/forgot-password">Forgot Password</a></p>
+            </div>
+        </div>
+    </div>
+    <!--page body ends -->
+    <!-- SCRIPT LOADING START FORM HERE /////////////-->
+    <!-- plugins:js -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('.static', filename='js/core.js')}}"></script>
+    <script src="{{ url_for('.static', filename='js/vendor.js')}}"></script>
+    <!-- endinject -->
+    <!-- Vendor Js For This Page Ends-->
+    <script src="{{ url_for('.static', filename='js/Chart.js')}}"></script>
+    <!-- Vendor Js For This Page Ends-->
+    <script src="{{ url_for('.static', filename='js/script.js')}}"></script>
+
+</body>
+</html>
